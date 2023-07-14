@@ -5,4 +5,9 @@ cp ./source/config ~/.ssh/config
 git clone git@github.com:jpolitz/pyret-grading-example.git
 
 rm ./source/id_rsa
+
+pushd /autograder/source/code.pyret.org
+npm start &
+popd
+
 bash pyret-grading-example/grade
