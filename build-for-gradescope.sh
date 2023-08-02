@@ -9,6 +9,8 @@ pushd code.pyret.org
 npm install
 ln -s node_modules/pyret-lang pyret
 cp .env.example .env
+echo "GOOGLE_API_KEY=AIzaSyDJnGUiV4b06hCIHq_ftAGqEbnhLtK9phs" >> .env
+echo "GOOGLE_APP_ID=267342163896" >> .env
 touch src/web/js/beforePyret.js
 npm run build
 popd
