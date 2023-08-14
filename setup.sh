@@ -42,18 +42,14 @@ apt-get install -y \
   wget \
   xdg-utils
 
-
-# NOTE(joe): code.pyret.org should already be built and mostly ready (because
-# build-for-gradescope.sh zips up a built copy). However, the machine it was
-# built on might not have exactly the right CLI tools installed due to
-# differences in what was npm installed. So reinstall the packages on the
-# Gradescope image with its settings as part of 1-time setup, and trigger a
-# rebuild with some touchy bits to make sure things are initialized right.
-pushd /autograder/source/code.pyret.org
-echo "Reinstalling node_modules"
-rm -rf node_modules
+cd /autograder
+git clone https://github.com/brownplt/code.pyret.org.git
+pushd code.pyret.org
 npm install
-echo "touching and rebuilding beforePyret.js"
+ln -s node_modules/pyret-lang pyret
+cp .env.example .env
+echo "GOOGLE_API_KEY=AIzaSyDJnGUiV4b06hCIHq_ftAGqEbnhLtK9phs" >> .env
+echo "GOOGLE_APP_ID=267342163896" >> .env
 touch src/web/js/beforePyret.js
 npm run build
 popd
@@ -61,3 +57,4 @@ popd
 npm install -g pyret-npm
 
 ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+
