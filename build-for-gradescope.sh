@@ -1,10 +1,12 @@
+set -e
+
 if [ $# -ne 1 ];
     then echo "Provide the path to your Github ssh key as the first parameter"
 fi
 
 cp $1 id_rsa
 
-git clone git@github.com:brownplt/code.pyret.org
+git clone https://github.com/brownplt/code.pyret.org.git
 pushd code.pyret.org
 npm install
 ln -s node_modules/pyret-lang pyret
