@@ -43,7 +43,7 @@ apt-get install -y \
   xdg-utils
 
 cd /autograder
-tar xzf source/cpo.tgz -c code.pyret.org
+tar xzf source/cpo.tgz
 ln -s node_modules/pyret-lang pyret
 
 npm install -g pyret-npm

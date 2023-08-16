@@ -6,4 +6,4 @@ fi
 
 cp $1 id_rsa
 
-zip -r pa.zip config setup.sh run_autograder id_rsa
+zip -r pa.zip config setup.sh run_autograder id_rsa cpo.tgz
