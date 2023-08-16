@@ -43,16 +43,8 @@ apt-get install -y \
   xdg-utils
 
 cd /autograder
-git clone https://github.com/brownplt/code.pyret.org.git
-pushd code.pyret.org
-npm install
+tar xzf source/cpo.tgz -c code.pyret.org
 ln -s node_modules/pyret-lang pyret
-cp .env.example .env
-echo "GOOGLE_API_KEY=AIzaSyDJnGUiV4b06hCIHq_ftAGqEbnhLtK9phs" >> .env
-echo "GOOGLE_APP_ID=267342163896" >> .env
-touch src/web/js/beforePyret.js
-npm run build
-popd
 
 npm install -g pyret-npm
 
