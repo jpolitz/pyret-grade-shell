@@ -6,7 +6,7 @@ git clone git@github.com:jpolitz/pyret-grading-example.git
 
 rm ./source/id_rsa
 
-pushd /autograder/source/code.pyret.org
+pushd /autograder/code.pyret.org
 npm start &
 popd
 
